@@ -2,6 +2,7 @@
 
 import hashlib
 import sys
+import sysconfig
 from pathlib import Path
 
 from openpyxl import Workbook, load_workbook
@@ -123,8 +124,9 @@ def test_aide():
 
 
 def test_la_commande_installee_existe():
-    dossier = Path(sys.executable).parent
-    assert any((dossier / nom).exists() for nom in ("nettoyer-excel.exe", "nettoyer-excel"))
+    # Hors environnement virtuel sous Windows, pip installe les commandes dans Scripts\, pas à côté de python.exe.
+    dossiers = {Path(sys.executable).parent, Path(sysconfig.get_path("scripts"))}
+    assert any((d / nom).exists() for d in dossiers for nom in ("nettoyer-excel.exe", "nettoyer-excel"))
 
 
 def test_fichier_de_sortie_ouvert_dans_excel(tmp_path, valeurs_valides, monkeypatch, capsys):
