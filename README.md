@@ -1,5 +1,7 @@
 # Nettoyage Excel
 
+![Tests](https://github.com/Ednar17/nettoyage-excel/actions/workflows/ci.yml/badge.svg)
+
 Nettoie un fichier de commandes Excel ou CSV : formats unifiés, doublons supprimés, lignes douteuses signalées au lieu d'être corrigées au hasard.
 
 ![Avant / après](exemples/avant_apres.png)
@@ -112,3 +114,7 @@ python creer_image.py
 ```
 
 `creer_image.py` demande Pillow (`pip install -e ".[demo]"`) et les polices Segoe UI de Windows.
+
+## Auteur
+
+**Sami Guetarni** · Ingénieur logiciel et data · [LinkedIn](https://www.linkedin.com/in/sami-guetarni-7b671820b) · [GitHub](https://github.com/Ednar17)
